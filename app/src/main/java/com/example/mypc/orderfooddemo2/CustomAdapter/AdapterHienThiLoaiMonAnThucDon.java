@@ -49,7 +49,7 @@ public class AdapterHienThiLoaiMonAnThucDon extends BaseAdapter {
     }
 
     public class ViewHolderHienThiLoaiThucDon {
-        ImageView ivHinhLoaiThucDon;
+
         TextView tvTenLoaiThucDon;
     }
 
@@ -60,7 +60,7 @@ public class AdapterHienThiLoaiMonAnThucDon extends BaseAdapter {
             viewHolderHienThiLoaiThucDon = new ViewHolderHienThiLoaiThucDon();
             view = LayoutInflater.from(context).inflate(R.layout.custom_layout_hienloaimonan, viewGroup, false);
 
-            viewHolderHienThiLoaiThucDon.ivHinhLoaiThucDon = (ImageView) view.findViewById(R.id.ivHienThiMonAn);
+
             viewHolderHienThiLoaiThucDon.tvTenLoaiThucDon = (TextView) view.findViewById(R.id.tvTenLoaiThucDon);
 
             view.setTag(viewHolderHienThiLoaiThucDon);
@@ -70,11 +70,11 @@ public class AdapterHienThiLoaiMonAnThucDon extends BaseAdapter {
 
         LoaiMonAnDTO loaiMonAnDTO = loaiMonAnDTOList.get(i);
         int maloai = loaiMonAnDTO.getMaLoai();
-        String hinhanh = loaiMonAnDAO.LayHinhLoaiMonAn(maloai);
 
-        Uri uri = Uri.parse(hinhanh);
+
+
         viewHolderHienThiLoaiThucDon.tvTenLoaiThucDon.setText(loaiMonAnDTO.getTenLoai());
-        viewHolderHienThiLoaiThucDon.ivHinhLoaiThucDon.setImageURI(uri);
+
 
 
         return view;

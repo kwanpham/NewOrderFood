@@ -3,8 +3,8 @@
 
     <group>
         <item
-            android:id="@+id/itThemBanAn"
-            android:title="Thêm bàn ăn"></item>
+            android:id="@+id/itThemGoiMon"
+            android:title="Thêm Gọi Món"></item>
 
         <item
             android:id="@+id/itXoaCSDL"

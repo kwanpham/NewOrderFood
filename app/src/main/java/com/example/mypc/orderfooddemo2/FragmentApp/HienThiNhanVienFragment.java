@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.mypc.orderfooddemo2.Base.FragmentBase;
 import com.example.mypc.orderfooddemo2.CustomAdapter.AdapterHienThiNhanVien;
 import com.example.mypc.orderfooddemo2.DAO.NhanVienDAO;
 import com.example.mypc.orderfooddemo2.DTO.NhanVienDTO;
@@ -36,6 +37,8 @@ public class HienThiNhanVienFragment extends Fragment {
     List<NhanVienDTO> nhanVienDTOList;
     int maquyen;
     SharedPreferences sharedPreferences;
+
+
 
     @Nullable
     @Override

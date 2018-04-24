@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mypc.orderfooddemo2.DAO.NhanVienDAO;
+import com.example.mypc.orderfooddemo2.Utils.Utils;
 
 public class DangNhapActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -73,12 +74,13 @@ public class DangNhapActivity extends AppCompatActivity implements View.OnClickL
                 editor.putInt("maquyen",maquyen);
                 editor.commit();
 
+                Utils.saveSharePrefrence("manv" , kiemtra+"" , this);
                 Intent intentTrangChu = new Intent(DangNhapActivity.this , TrangchuActivity.class);
                 intentTrangChu.putExtra("tendn" , sTenDangNhap);
                 intentTrangChu.putExtra("manv" , kiemtra);
                 startActivity(intentTrangChu);
                 overridePendingTransition(R.anim.hieuung_activity_vao , R.anim.hieuung_activity_ra);
-                //finish();
+                finish();
             }else {
                 Toast.makeText(this, "Sai tên đăng nhập hoặn mật khẩu", Toast.LENGTH_SHORT).show();
             }

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,22 +22,23 @@ import com.example.mypc.orderfooddemo2.DAO.MonAnDAO;
 import com.example.mypc.orderfooddemo2.DTO.LoaiMonAnDTO;
 import com.example.mypc.orderfooddemo2.DTO.MonAnDTO;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 
 public class ThemMonAnActivity extends AppCompatActivity implements View.OnClickListener {
 
     public final static int REQUEST_CODE_THEMLOAITHUCDON = 0;
-    public final static int REQUEST_CODE_MOHINH = 1;
+
     ImageButton imThemLoaiThucDon;
     Spinner spinLoaiThucDon;
     LoaiMonAnDAO loaiMonAnDAO;
     MonAnDAO monAnDAO;
     List<LoaiMonAnDTO> loaiMonAnDTOList;
     AdapterHienThiLoaiMonAnSpinder adapterHienThiLoaiMonAn;
-    ImageView imHinhThucDon;
+
     Button btnDongYThemMonAn, btnThoatThemMonAn;
-    String sDuongDanHinh = "";
+
     EditText edTenMonAn, edGiaTien;
 
     @Override
@@ -45,18 +48,18 @@ public class ThemMonAnActivity extends AppCompatActivity implements View.OnClick
 
         imThemLoaiThucDon = (ImageButton) findViewById(R.id.imThemLoaiThucDon);
         spinLoaiThucDon = (Spinner) findViewById(R.id.spinLoaiMonAn);
-        imHinhThucDon = (ImageView) findViewById(R.id.imHinhThucDon);
+
         btnDongYThemMonAn = (Button) findViewById(R.id.btnDongYThemMonAn);
         btnThoatThemMonAn = (Button) findViewById(R.id.btnThoatThemMonAn);
         edTenMonAn = (EditText) findViewById(R.id.edThemTenMonAn);
         edGiaTien = (EditText) findViewById(R.id.edThemGiaTien);
 
         imThemLoaiThucDon.setOnClickListener(this);
-        imHinhThucDon.setOnClickListener(this);
+
         btnDongYThemMonAn.setOnClickListener(this);
         btnThoatThemMonAn.setOnClickListener(this);
 
-//        final DecimalFormat decimalFormat = new DecimalFormat("###.###");
+        final DecimalFormat formatter = new DecimalFormat("###,###,###.##");
 //        edGiaTien.addTextChangedListener(new TextWatcher() {
 //            @Override
 //            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -70,7 +73,7 @@ public class ThemMonAnActivity extends AppCompatActivity implements View.OnClick
 //
 //            @Override
 //            public void afterTextChanged(Editable s) {
-//                String temp = decimalFormat.format(Integer.valueOf(edGiaTien.getText().toString().trim()));
+//                String temp = formatter.format(Integer.valueOf(edGiaTien.getText().toString().trim()));
 //                edGiaTien.setText(temp);
 //
 //
@@ -107,13 +110,6 @@ public class ThemMonAnActivity extends AppCompatActivity implements View.OnClick
 
                 break;
 
-            case R.id.imHinhThucDon:
-                Intent iMoHinh = new Intent(Intent.ACTION_PICK , MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                iMoHinh.setType("image/*");
-
-
-                startActivityForResult(Intent.createChooser(iMoHinh, "Chọn hình thực đơn"), REQUEST_CODE_MOHINH);
-                break;
 
             case R.id.btnDongYThemMonAn:
                 int vitri = spinLoaiThucDon.getSelectedItemPosition();
@@ -122,14 +118,14 @@ public class ThemMonAnActivity extends AppCompatActivity implements View.OnClick
 
 
 
-                String tenmonan = edTenMonAn.getText().toString();
-                String giatien = edGiaTien.getText().toString();
+                String tenmonan = edTenMonAn.getText().toString().trim();
+                String giatien = edGiaTien.getText().toString().trim();
 
-                if(!tenmonan.equals("") && !giatien.equals("") && !sDuongDanHinh.equals("") && (vitri != -1)){
+                if(!tenmonan.equals("") && !giatien.equals("") && (vitri != -1)){
                     int maloai = loaiMonAnDTOList.get(vitri).getMaLoai() ;
                     MonAnDTO monAnDTO = new MonAnDTO();
-                    monAnDTO.setGiaTien(giatien);
-                    monAnDTO.setHinhAnh(sDuongDanHinh);
+                    monAnDTO.setGiaTien(Integer.valueOf(giatien));
+
                     monAnDTO.setMaLoai(maloai);
                     monAnDTO.setTenMonAn(tenmonan);
 
@@ -167,12 +163,7 @@ public class ThemMonAnActivity extends AppCompatActivity implements View.OnClick
                     Toast.makeText(this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
                 }
             }
-        } else if (requestCode == REQUEST_CODE_MOHINH && data!=null) {
-            if (resultCode == Activity.RESULT_OK) {
-                imHinhThucDon.setImageURI(data.getData());
-                sDuongDanHinh = data.getDataString();
 
-            }
         }
 
     }

@@ -20,8 +20,14 @@
             android:id="@+id/itNhanVien" />
 
         <item
+            android:icon="@drawable/nhanvien"
+            android:title="Thu Chi"
+            android:id="@+id/itThuChi" />
+
+        <item
             android:icon="@drawable/thongke"
-            android:title="Thống kê" />
+            android:title="Thống kê"
+            android:id="@+id/itThongKe"/>
 
     </group>
 

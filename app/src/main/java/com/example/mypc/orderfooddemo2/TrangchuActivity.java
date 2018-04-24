@@ -2,24 +2,23 @@ package com.example.mypc.orderfooddemo2;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
-import com.example.mypc.orderfooddemo2.FragmentApp.HienThiBanAnFragment;
+import com.example.mypc.orderfooddemo2.FragmentApp.HienThiGoiMonFragment;
 import com.example.mypc.orderfooddemo2.FragmentApp.HienThiNhanVienFragment;
 import com.example.mypc.orderfooddemo2.FragmentApp.HienThiThucDonFragment;
+import com.example.mypc.orderfooddemo2.FragmentApp.ThongKeFragment;
 
 public class TrangchuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,7 +37,6 @@ public class TrangchuActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_trangchu);
         ViewHolder();
-
 
 
     }
@@ -84,8 +82,8 @@ public class TrangchuActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.itTrangChu:
                 FragmentTransaction transactionHienThiBanAn = fragmentManager.beginTransaction();
-                HienThiBanAnFragment hienThiBanAnFragment = new HienThiBanAnFragment();
-                transactionHienThiBanAn.replace(R.id.content, hienThiBanAnFragment);
+                HienThiGoiMonFragment hienThiGoiMonFragment = new HienThiGoiMonFragment();
+                transactionHienThiBanAn.replace(R.id.content, hienThiGoiMonFragment);
                 transactionHienThiBanAn.commit();
                 item.setCheckable(true);
                 drawerLayout.closeDrawers();
@@ -94,7 +92,7 @@ public class TrangchuActivity extends AppCompatActivity
             case R.id.itThucDon:
                 FragmentTransaction transactionHienThiThucDon = fragmentManager.beginTransaction();
                 HienThiThucDonFragment hienThiThucDonFragment = new HienThiThucDonFragment();
-                transactionHienThiThucDon.setCustomAnimations(R.anim.hieuung_activity_vao , R.anim.hieuung_activity_ra);
+                transactionHienThiThucDon.setCustomAnimations(R.anim.hieuung_activity_vao, R.anim.hieuung_activity_ra);
                 transactionHienThiThucDon.replace(R.id.content, hienThiThucDonFragment);
                 transactionHienThiThucDon.commit();
                 item.setCheckable(true);
@@ -109,6 +107,24 @@ public class TrangchuActivity extends AppCompatActivity
                 item.setCheckable(true);
                 drawerLayout.closeDrawers();
                 break;
+
+            case R.id.itThuChi:
+                FragmentTransaction transactionThuChi = fragmentManager.beginTransaction();
+                ThuChiFragment thuChiFragment = new ThuChiFragment();
+                transactionThuChi.replace(R.id.content, thuChiFragment);
+                transactionThuChi.commit();
+                item.setCheckable(true);
+                drawerLayout.closeDrawers();
+                break;
+
+            case R.id.itThongKe:
+                FragmentTransaction transactionThongKe = fragmentManager.beginTransaction();
+                ThongKeFragment thongKeFragment = new ThongKeFragment();
+                transactionThongKe.replace(R.id.content, thongKeFragment);
+                transactionThongKe.commit();
+                item.setCheckable(true);
+                drawerLayout.closeDrawers();
+                break;
         }
 
 
@@ -116,7 +132,7 @@ public class TrangchuActivity extends AppCompatActivity
         return false;
     }
 
-    private void ViewHolder(){
+    private void ViewHolder() {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -134,7 +150,8 @@ public class TrangchuActivity extends AppCompatActivity
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close){};
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+        };
 
         toggle.syncState();
 
@@ -148,12 +165,10 @@ public class TrangchuActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-
-
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transactionHienThiBanAn = fragmentManager.beginTransaction();
-        HienThiBanAnFragment hienThiBanAnFragment = new HienThiBanAnFragment();
-        transactionHienThiBanAn.replace(R.id.content, hienThiBanAnFragment);
+        HienThiGoiMonFragment hienThiGoiMonFragment = new HienThiGoiMonFragment();
+        transactionHienThiBanAn.replace(R.id.content, hienThiGoiMonFragment);
         transactionHienThiBanAn.commit();
     }
 

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:orientation="horizontal"
+    android:padding="2dp">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvMaBan"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/my_circle"
+            android:gravity="center"
+            android:text="9"
+            android:textSize="30sp" />
+
+
+        <TextView
+            android:id="@+id/tvSoNguoi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:drawableRight="@drawable/user"
+            android:text="8"
+            android:textSize="30sp"
+
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rlChiTietGoiMon"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTongTienBanAn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:gravity="center"
+                android:text="4.200.00"
+                android:textSize="30sp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="29dp"
+                android:layout_marginStart="29dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15"
+                android:textSize="30sp"
+                android:layout_marginRight="47dp"
+                android:layout_marginEnd="47dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/textView2"
+                android:layout_toStartOf="@+id/textView2"
+                android:id="@+id/tvSoLuongGoiMon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:text=">"
+
+
+                android:textSize="30sp"
+                android:id="@+id/textView2"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/llChiTietGoiMon"
+            android:background="@color/backgroundDangNhap"
+            android:orientation="horizontal"
+
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnHuyGoiMon"
+                android:layout_width="@dimen/size10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Hủy" />
+
+            <Button
+                android:id="@+id/btnThuTien"
+                android:layout_width="@dimen/size10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Thu Tiền" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="#c0c0c0" />
+
+
+</LinearLayout>

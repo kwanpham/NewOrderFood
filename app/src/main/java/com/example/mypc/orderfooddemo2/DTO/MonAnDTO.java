@@ -7,16 +7,7 @@ package com.example.mypc.orderfooddemo2.DTO;
 public class MonAnDTO {
     int MaMonAn, MaLoai;
     String TenMonAn;
-    String GiaTien;
-    String HinhAnh;
-
-    public String getHinhAnh() {
-        return HinhAnh;
-    }
-
-    public void setHinhAnh(String hinhAnh) {
-        HinhAnh = hinhAnh;
-    }
+    int GiaTien;
 
 
     public int getMaMonAn() {
@@ -43,11 +34,11 @@ public class MonAnDTO {
         TenMonAn = tenMonAn;
     }
 
-    public String getGiaTien() {
+    public int getGiaTien() {
         return GiaTien;
     }
 
-    public void setGiaTien(String giaTien) {
+    public void setGiaTien(int giaTien) {
         GiaTien = giaTien;
     }
 }

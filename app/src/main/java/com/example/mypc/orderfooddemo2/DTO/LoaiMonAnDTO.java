@@ -7,15 +7,7 @@ package com.example.mypc.orderfooddemo2.DTO;
 public class LoaiMonAnDTO {
     int MaLoai;
     String TenLoai;
-    String HinhAnh;
 
-    public String getHinhAnh() {
-        return HinhAnh;
-    }
-
-    public void setHinhAnh(String hinhAnh) {
-        HinhAnh = hinhAnh;
-    }
 
 
 

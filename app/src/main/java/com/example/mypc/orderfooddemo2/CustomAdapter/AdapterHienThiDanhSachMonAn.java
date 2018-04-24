@@ -47,7 +47,7 @@ public class AdapterHienThiDanhSachMonAn extends BaseAdapter {
     }
 
     public class ViewHolderHienThiDanhSachMonAn {
-        ImageView imHinhMonAn;
+
         TextView txtTenMonAn, txtGiaTien;
     }
 
@@ -59,7 +59,7 @@ public class AdapterHienThiDanhSachMonAn extends BaseAdapter {
             viewHolderHienThiDanhSachMonAn = new ViewHolderHienThiDanhSachMonAn();
             view = inflater.inflate(layout, parent, false);
 
-            viewHolderHienThiDanhSachMonAn.imHinhMonAn = (ImageView) view.findViewById(R.id.ivHienThiDSMonAn);
+
             viewHolderHienThiDanhSachMonAn.txtTenMonAn = (TextView) view.findViewById(R.id.tvTenDSMonAn);
             viewHolderHienThiDanhSachMonAn.txtGiaTien = (TextView) view.findViewById(R.id.tvGiaTienDSMonAn);
 
@@ -70,13 +70,7 @@ public class AdapterHienThiDanhSachMonAn extends BaseAdapter {
         }
 
         MonAnDTO monAnDTO = monAnDTOList.get(position);
-        String hinhanh = monAnDTO.getHinhAnh().toString();
-        if (hinhanh.equals("")) {
-            viewHolderHienThiDanhSachMonAn.imHinhMonAn.setImageResource(R.drawable.backgroundheader1);
-        } else {
-            Uri uri = Uri.parse(hinhanh);
-            viewHolderHienThiDanhSachMonAn.imHinhMonAn.setImageURI(uri);
-        }
+
 
         viewHolderHienThiDanhSachMonAn.txtTenMonAn.setText(monAnDTO.getTenMonAn());
         viewHolderHienThiDanhSachMonAn.txtGiaTien.setText("Giá " + monAnDTO.getGiaTien());

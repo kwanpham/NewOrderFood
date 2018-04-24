@@ -29,11 +29,11 @@ public class MonAnDAO {
         contentValues.put(CreateDatabase.TB_MONAN_TENMONAN, monAnDTO.getTenMonAn());
         contentValues.put(CreateDatabase.TB_MONAN_GIATIEN, monAnDTO.getGiaTien());
         contentValues.put(CreateDatabase.TB_MONAN_MALOAI, monAnDTO.getMaLoai());
-        contentValues.put(CreateDatabase.TB_MONAN_HINHANH, monAnDTO.getHinhAnh());
+
 
         long kiemTra = database.insert(CreateDatabase.TB_MONAN, null, contentValues);
 
-        database.close();
+
 
         if (kiemTra != 0) {
             return true;
@@ -53,8 +53,8 @@ public class MonAnDAO {
             MonAnDTO monAnDTO = new MonAnDTO();
 
             monAnDTO.setTenMonAn(cursor.getString(cursor.getColumnIndex(CreateDatabase.TB_MONAN_TENMONAN)));
-            monAnDTO.setHinhAnh(cursor.getString(cursor.getColumnIndex(CreateDatabase.TB_MONAN_HINHANH)));
-            monAnDTO.setGiaTien(cursor.getString(cursor.getColumnIndex(CreateDatabase.TB_MONAN_GIATIEN)));
+
+            monAnDTO.setGiaTien(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TB_MONAN_GIATIEN)));
             monAnDTO.setMaMonAn(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TB_MONAN_MAMON)));
             monAnDTO.setMaLoai(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TB_MONAN_MALOAI)));
 
@@ -63,8 +63,12 @@ public class MonAnDAO {
             cursor.moveToNext();
         }
 
-        database.close();
+
         return monAnDTOList;
+    }
+
+    public void closeDataBase(){
+        database.close();
     }
 
 

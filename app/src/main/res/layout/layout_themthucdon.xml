@@ -75,12 +75,7 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imHinhThucDon"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_weight="1"
-            android:src="@drawable/backgroundheader1" />
+
 
     </LinearLayout>
 

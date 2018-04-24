@@ -8,15 +8,22 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DangNhapActivity"
+        <activity
+            android:name=".DangNhapActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,29 +31,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DangKyActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".TrangchuActivity" />
-        <activity android:name=".ThemMonAnActivity"
-            android:screenOrientation="portrait"/>
         <activity
-            android:name=".ThemBanAnActivity"
-            android:label="Thêm bàn ăn"
-            android:theme="@style/PopUpActivity" />
+            android:name=".DangKyActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".TrangchuActivity" />
+        <activity
+            android:name=".ThemMonAnActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ThemLoaiThucDonActivity"
             android:label="Thêm loại thưc đơn"
             android:theme="@style/PopUpActivity" />
-        <activity android:name=".ThanhToanActivity" />
-        <activity android:name=".SoLuongActivity"
-            android:screenOrientation="portrait"
-            android:label="Số lượng"
-            android:theme="@style/PopUpActivity"></activity>
-
-        <activity android:name=".SuaBanAnActivity"
-            android:screenOrientation="portrait"
-            android:label="Sửa Bàn Ăn"
-            android:theme="@style/PopUpActivity"></activity>
+        <activity
+            android:name=".ThanhToanActivity"
+            android:theme="@style/ActionBar" />
+        <activity
+            android:name=".ThemGoiMonActivity"
+            android:theme="@style/ActionBar"></activity>
     </application>
 
 </manifest>

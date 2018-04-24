@@ -5,6 +5,15 @@
 
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Hóa Đơn"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +27,8 @@
             android:layout_weight="1"
             android:text="Tên món ăn"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,7 +36,8 @@
             android:layout_weight="1"
             android:text="Số lượng"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,7 +45,8 @@
             android:layout_weight="1"
             android:text="Giá tiền"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"/>
 
     </LinearLayout>
 
@@ -44,6 +56,17 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:numColumns="1"></GridView>
+
+    <EditText
+        android:id="@+id/edGiamGia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#fff"
+        android:hint="Giảm giá "
+        android:inputType="number"
+
+        />
 
     <TextView
         android:id="@+id/tvTongTien"
@@ -64,25 +87,22 @@
         >
 
         <Button
+            android:id="@+id/btnThanhToan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/thanhtoan"
+            android:layout_margin="@dimen/size10dp"
             android:layout_weight="1"
             android:background="#4c6ae2"
-            android:layout_margin="@dimen/size10dp"
-            android:id="@+id/btnThanhToan"
-            />
+            android:text="@string/thanhtoan" />
 
         <Button
+            android:id="@+id/btnThoatThanhToan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/thoat"
+            android:layout_margin="@dimen/size10dp"
             android:layout_weight="1"
             android:background="#d9986a"
-            android:layout_margin="@dimen/size10dp"
-            android:id="@+id/btnThoatThanhToan"
-            />
-
+            android:text="@string/thoat" />
 
 
     </LinearLayout>

@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.example.mypc.orderfooddemo2.Base.FragmentBase;
 import com.example.mypc.orderfooddemo2.CustomAdapter.AdapterHienThiLoaiMonAnThucDon;
 import com.example.mypc.orderfooddemo2.DAO.LoaiMonAnDAO;
 import com.example.mypc.orderfooddemo2.DTO.LoaiMonAnDTO;
@@ -42,6 +43,8 @@ public class HienThiThucDonFragment extends Fragment {
     int maban = 0;
     int maquyen;
     SharedPreferences sharedPreferences;
+
+
 
     @Nullable
     @Override

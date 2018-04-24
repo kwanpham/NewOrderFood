@@ -4,12 +4,11 @@
     android:layout_height="match_parent"
     android:background="#ffff">
 
-    <GridView
-        android:id="@+id/gvHienThiBanAn"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvHienThiGoiMon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="3"
         android:padding="10dp">
 
-    </GridView>
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>
